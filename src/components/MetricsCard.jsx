@@ -3,9 +3,9 @@ import { ArrowUp } from 'lucide-react';
 
 const MetricsCards = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="min-h-screen flex items-start justify-center bg-gray-50">
       {/* Container for both cards */}
-      <div className="relative w-[417px]">
+      <div className="relative w-[417px] top-1/3">
         {/* Main larger card */}
         <div className="bg-white rounded-xl shadow-custom-xl border p-6">
           <div className="flex items-center gap-2 mb-8">

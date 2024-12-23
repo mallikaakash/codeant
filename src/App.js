@@ -1,7 +1,11 @@
 import React from "react";
-// import { PlusCircle } from 'lucide-react';
 import "./index.css";
 import MetricsCards from "./components/MetricsCard.jsx";
+import SignInCard from "./components/SignInCard.jsx";
+
+import { useState } from 'react';
+
+
 
 // const repositories = [
 //   {
@@ -37,52 +41,17 @@ import MetricsCards from "./components/MetricsCard.jsx";
 // ];
 
 export default function App() {
+
   return (
-    <body className="container min-w-full min-h-screen mx-auto flex flex-row">
-      <div className="w-2/3 h-screen p-4 border-r border-gray-200 flex flex-col justify-center items-center ">
-        {/* <div className="bg-white rounded-lg shadow-lg ">
-          <div className="flex flex-row gap-4 items-center justify-center border-b border-gray-200 p-4">
-            <img src="./assets/small_logo.png" alt="logo" />
-            <h1 className="font-bold text-xl">
-              {" "}
-              AI to Detect & Autofix Bad code{" "}
-            </h1>
-          </div>
-          <div className="flex flex-row gap-4 items-center justify-center p-4">
-            <div>
-              <p className="font-bold"> 30+</p>
-              <p>language Support</p>
-            </div>
-            <div>
-              <p className="font-bold"> 10K+</p>
-              <p>developers</p>
-            </div>
-            <div>
-              <p className="font-bold"> 100K+</p>
-              <p>Hours saved</p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-row gap-4 items-center justify-center p-4 border border-gray-200 rounded-lg -mt-4 right-0 z-10 ">
-          <p>Number of stars</p>
-        </div> */}
+    <div className="container min-w-full min-h-screen mx-auto flex flex-row">
+      <div className="hidden sm:flex w-1/2 h-screen p-4 border-r border-gray-200 flex-col justify-center items-center">
         <MetricsCards />
       </div>
 
-      <div className="w-1/2 h-screen p-4 flex items-center justify-center">
-        <div className="gap-4 flex flex-col items-center justify-center p-6 rounded-lg">
-          <h1 className="font-bold text-3xl"> CodeAnt AI </h1>
-          <h3 className="font-semibold text-xl"> welcome to CodeAnt AI </h3>
-          <div className="flex flex-row gap-4">
-            <button className="bg-blue-600 w-64 h-12 rounded-sm text mt-4">
-              {" "}
-              SAAS
-            </button>
-            <button className="w-64 h-12 mt-2"> Self Hosted</button>
-          </div>
-          <div></div>
-        </div>
+      <div className="w-full sm:w-1/2 h-screen p-4 flex items-center justify-center">
+        <SignInCard />
+        
       </div>
-    </body>
+    </div>
   );
 }

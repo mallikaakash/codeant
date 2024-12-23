@@ -1,6 +1,7 @@
 import React from "react";
 // import { PlusCircle } from 'lucide-react';
 import "./index.css";
+import MetricsCards from "./components/MetricsCard.jsx";
 
 // const repositories = [
 //   {
@@ -38,8 +39,8 @@ import "./index.css";
 export default function App() {
   return (
     <body className="container min-w-full min-h-screen mx-auto flex flex-row">
-      <div className="w-1/2 h-screen p-4 border-r border-gray-200 flex flex-col justify-center items-center">
-        <div className="bg-white rounded-lg shadow-lg ">
+      <div className="w-2/3 h-screen p-4 border-r border-gray-200 flex flex-col justify-center items-center ">
+        {/* <div className="bg-white rounded-lg shadow-lg ">
           <div className="flex flex-row gap-4 items-center justify-center border-b border-gray-200 p-4">
             <img src="./assets/small_logo.png" alt="logo" />
             <h1 className="font-bold text-xl">
@@ -62,6 +63,10 @@ export default function App() {
             </div>
           </div>
         </div>
+        <div className="flex flex-row gap-4 items-center justify-center p-4 border border-gray-200 rounded-lg -mt-4 right-0 z-10 ">
+          <p>Number of stars</p>
+        </div> */}
+        <MetricsCards />
       </div>
 
       <div className="w-1/2 h-screen p-4 flex items-center justify-center">

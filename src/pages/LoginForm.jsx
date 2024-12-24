@@ -12,6 +12,7 @@ import {
   PlusIcon,
   RecycleIcon,
   RefreshCcw,
+  Search,
   Settings,
 } from "lucide-react";
 import dark_logo from "../assets/dark_logo.jpg";
@@ -178,9 +179,8 @@ export default function LoginForm() {
       <div className="flex-1 p-8">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="mb-8">
-            <div className="flex flex-row sm:flex-row items-start sm:items-center justify-between  gap-4">
-              {/* <div className="flex flex-row sm:flex-row items-start sm:items-center justify-between mb-8 gap-4"> */}
+          <div className="mb-4">
+            <div className="flex flex-row sm:flex-row items-start sm:items-center justify-between ">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">
                   Repositories
@@ -198,9 +198,8 @@ export default function LoginForm() {
                   <span>Add Repository</span>
                 </button>
               </div>
-              {/* </div> */}
             </div>
-            <div className="relative w-full max-w-sm">
+            <div className="relative w-full max-w-sm mt-4">
               <input
                 type="text"
                 className="w-full rounded-md border border-gray-300 py-2 pl-10 pr-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -208,20 +207,7 @@ export default function LoginForm() {
               />
               {/* "Magnifying glass" or any icon at left */}
               <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110 2.5a7.5 7.5 0 016.65 10.15l4.35 4.35z"
-                  />
-                </svg>
+                <Search size={20} />
               </div>
             </div>
           </div>

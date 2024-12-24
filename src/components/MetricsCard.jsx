@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
+import dark_logo from '../assets/dark_logo.jpg';
 
 const MetricsCards = () => {
   return (
@@ -9,7 +10,9 @@ const MetricsCards = () => {
         {/* Main larger card */}
         <div className="bg-white rounded-xl shadow-custom-xl border p-6">
           <div className="flex items-center gap-2 mb-8">
-            <div className="w-6 h-6 bg-blue-900 rounded-full"></div>
+            <div className="w-6 h-6 bg-blue-900 rounded-full">
+              <img src={dark_logo} alt="Logo" className="w-full h-full object-cover" />
+            </div>
             <h2 className="text-gray-800 font-medium">AI to Detect & Autofix Bad Code</h2>
           </div>
 
@@ -28,7 +31,7 @@ const MetricsCards = () => {
         </div>
 
         {/* Smaller overlapping card */}
-        <div className="absolute -bottom-[117px] left-40 bg-white rounded-lg shadow-custom border  p-4 z-10 w-[270px]">
+        <div className="absolute -bottom-[117px] -right-4 bg-white rounded-lg shadow-custom border  p-4 z-10 w-[220px]">
           <div className="relative">
             {/* Purple circle */}
             <div className="absolute -top-2">

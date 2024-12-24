@@ -47,8 +47,8 @@ const saasOptions = [
   
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center flex-col ">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 mb-10">
+    <div className="min-h-screen w-full bg-gray-50 flex items-center justify-center flex-col ">
+      <div className="w-full bg-white border rounded-2xl shadow-lg p-8 mb-10">
         {/* Logo and Title */}
         <div className="flex justify-center items-center gap-2 mb-6">
           <img 
@@ -94,7 +94,7 @@ const saasOptions = [
           {(saasOptions).map((option,index) => (
               <button
                 key={option.name}
-                className="w-full mb-4 py-3 px-4 border rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
+                className="w-1/2 mb-4 py-3 px-4 border rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
               >
                 <img src={option.icon} alt={option.name} className="w-5 h-5" />
                 {option.title}

@@ -15,6 +15,8 @@ I have made use of the following technologies:
 
 ## Demo ScreenShots and vidoes
 
+The demo video can be found the ./misc folder. File name - Demo Video.mp4
+
 - ![Sign In Page in a Desktop Screen View](./misc/signin_laptop.png)
 - ![Sign In Page in a Mobile Screen View](./misc/signin_mobile.png)
 - ![Repository Page in a Desktop Screen View](./misc/repo_laptop.png)

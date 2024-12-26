@@ -19,6 +19,7 @@ import {
   Search,
   Settings,
 } from "lucide-react";
+import { GoDatabase } from "react-icons/go";
 import dark_logo from "../assets/dark_logo.jpg";
 
 import { useState } from "react";
@@ -27,8 +28,9 @@ import { BsRecord } from "react-icons/bs";
 import { Octokit } from "octokit";
 import { BiExit } from "react-icons/bi";
 
-
-{/*------------------------------------CAN BE IGNORED------------------------------------*/}
+{
+  /*------------------------------------CAN BE IGNORED------------------------------------*/
+}
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 const octokit = new Octokit({
   auth: GITHUB_TOKEN,
@@ -53,13 +55,15 @@ const fetchRepos = async () => {
 
 fetchRepos();
 
-{/*------------------------------------RepositoriesPage------------------------------------*/}
+{
+  /*------------------------------------RepositoriesPage------------------------------------*/
+}
 
 const peopleList = [
-  "UtkarshDhmmmmmmmmmmmmmmmairyaPandas",
-  "AbhishekChoudhary",
-  "E.SaiSurya",
-  "SaiSurya",
+  "Ashokan Suresh Dhinagaran ",
+  "Abhishek Choudhary",
+  "E Sai Surya Abhinaya",
+  "Aakash Debraj Mallik",
 ];
 
 const repositories = [
@@ -166,7 +170,7 @@ export default function RepositoriesPage() {
             <div className="flex items-center mb-4">
               <img src={dark_logo} alt="logo" className="w-6 h-6" />
               <h1 className="text-2xl font-bold">CodeAnt AI</h1>
-            </div> 
+            </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="w-full flex items-center justify-between p-2 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
@@ -224,9 +228,9 @@ export default function RepositoriesPage() {
             </div>
           </div>
         </div>
-        </div>
+      </div>
 
-        {/* Main Content */}
+      {/* Main Content */}
       <div className="flex-1 sm:p-8 sm:ml-60 border border-gray-200">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3"></div>
@@ -307,9 +311,16 @@ export default function RepositoriesPage() {
                       {repo.visibility}
                     </span>
                   </div>
-                  <p className="text-gray-600 text-xs">
-                    {repo.language} • {repo.size} KB • Updated{" "}
-                    {repo.lastUpdated}
+                  <p className="text-gray-600 text-xs flex items-center space-x-5">
+                    <span className="flex items-center space-x-2">
+                      <span>{repo.language}</span>
+                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full inline-block"></span>
+                    </span>
+                    <span className="flex items-center space-x-1">
+                      <span><GoDatabase /></span>
+                      <span>{repo.size} KB</span>
+                    </span>
+                    <span>Updated {repo.lastUpdated}</span>
                   </p>
                 </div>
 

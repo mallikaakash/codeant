@@ -157,7 +157,7 @@ export default function RepositoriesPage() {
             <div className="flex items-center mb-4">
               <img src={dark_logo} alt="logo" className="w-6 h-6" />
               <h1 className="text-2xl font-bold">CodeAnt AI</h1>
-            </div>
+            </div> 
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="w-full flex items-center justify-between p-2 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"

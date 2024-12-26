@@ -13,7 +13,7 @@ I have made use of the following technologies:
 - Javascript
 - Tailwind CSS
 
-## Demp ScreenShots 
+## Demo ScreenShots and vidoes
 
 - ![Sign In Page in a Desktop Screen View](./misc/signin_laptop.png)
 - ![Sign In Page in a Mobile Screen View](./misc/signin_mobile.png)

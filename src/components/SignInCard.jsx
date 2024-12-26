@@ -53,8 +53,8 @@ const saasOptions = [
   
 
   return (
-    <div className="min-h-screen w-full bg-gray-50 flex items-center justify-center flex-col ">
-      <div className="w-full mx-4 bg-white border rounded-2xl shadow-lg p-8 mb-10">
+    <div className="min-h-screen w-full bg-gray-50 flex items-center justify-center flex-col mx-4 ">
+      <div className="w-full mx-4 bg-white border rounded-2xl shadow-lg p-7 mb-6 min-h-[530px]">
         {/* Logo and Title */}
         <div className="flex justify-center items-center gap-2 mb-6">
           <img 
@@ -65,27 +65,27 @@ const saasOptions = [
           <span className="text-xl font-medium">CodeAnt AI</span>
         </div>
 
-        <h1 className="text-2xl font-semibold text-center mb-8">
+        <h1 className="text-2xl font-semibold text-center mb-4">
           Welcome to CodeAnt AI
         </h1>
 
         {/* Toggle Buttons */}
         <div className="flex gap-4 mb-8">
           <button
-            className={`flex-1 py-3 rounded-lg text-center transition-colors ${
+            className={`flex-1 py-3 rounded-lg text-center transition-colors hover:scale-[1.01] ${
               selectedOption === 'saas'
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-100 text-gray-700'
+                ? 'bg-blue-500 text-white hover:bg-blue-700'
+                : 'bg-gray-100 text-gray-700 hover:border hover:bg-gray-200 hover:border-gray-300'
             }`}
             onClick={() => setSelectedOption('saas')}
           >
             SAAS
           </button>
           <button
-            className={`flex-1 py-3 rounded-lg text-center transition-colors ${
+            className={`flex-1 py-3 rounded-lg text-center transition-colors hover:scale-[1.01] ${
               selectedOption === 'self-hosted'
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-100 text-gray-700'
+                ? 'bg-blue-500 text-white hover:bg-blue-700'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:border hover:border-gray-300'
             }`}
             onClick={() => setSelectedOption('self-hosted')}
           >
@@ -100,9 +100,9 @@ const saasOptions = [
           {(saasOptions).map((option,index) => (
               <button
                 key={option.name}
-                className="w-2/3 mx-auto mb-4 py-3 px-4 border rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
+                className="w-2/3 mx-auto mb-4 py-3 px-4 text-sm sm:text-base border rounded-lg flex items-center justify-center gap-2 hover:bg-gray-200 hover:scale-[1.01] transition-colors hover:border-gray-300"
               >
-                <img src={option.icon} alt={option.name} className="w-5 h-5" />
+                <img src={option.icon} alt={option.name} className="w-5 h-5 mr-2" />
                 {option.title}
               </button>
             ))}
@@ -112,9 +112,10 @@ const saasOptions = [
             {selfHostedOptions.map((option,index) => (
               <button
                 key={option.name}
-                className="w-2/3 mx-auto mb-4 py-3 px-4 border rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
+                className="w-2/3 mx-auto mb-4 py-3 px-4 border rounded-lg flex items-center justify-center gap-2 hover:bg-gray-200 hover:scale-[1.01] transition-colors 
+                hover:border-gray-300"
               >
-                <img src={option.icon} alt={option.name} className="w-5 h-5" />
+                <img src={option.icon} alt={option.name} className="w-5 h-5 mr-2" />
                 {option.title}
               </button>
             ))}

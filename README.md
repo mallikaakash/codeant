@@ -1,6 +1,6 @@
 # Introduction
 
-The live link for the demo of the projext change be accessed here: CodeAnt AI(https://codeant-ai-assignment.vercel.app/)
+The live link for the demo of the projext change be accessed here: CodeAnt AI (https://codeant-ai-iota.vercel.app/)
 
 This website is part of the submission to the CodeAnt AI assignment for the position of a Frontend Developer Intern.
 

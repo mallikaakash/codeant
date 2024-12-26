@@ -4,6 +4,9 @@ import MetricsCards from "../components/MetricsCard.jsx";
 import SignInCard from "../components/SignInCard.jsx";
 import logo from "../assets/logo.jpg";
 import { IoCodeSlashOutline } from "react-icons/io5";
+import { GoSignOut } from "react-icons/go";
+import { GiHamburgerMenu } from "react-icons/gi";
+import HamburgerMenu from "../components/Hamburger.jsx";
 import {
   Book,
   ChevronDown,
@@ -25,24 +28,23 @@ import { Octokit } from "octokit";
 import { BiExit } from "react-icons/bi";
 
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
-const octokit = new Octokit({ 
-  auth: GITHUB_TOKEN
+const octokit = new Octokit({
+  auth: GITHUB_TOKEN,
 });
 
 console.log(octokit);
 
 const fetchRepos = async () => {
-  const response = await octokit.request('GET /users/mallikaakash/repos', {
-    username: 'mallikaakash',
+  const response = await octokit.request("GET /users/mallikaakash/repos", {
+    username: "mallikaakash",
     headers: {
-      'X-GitHub-Api-Version': '2022-11-28'
-    }
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
   });
   console.log(response.data.map((repo) => repo.full_name.split("/")[1]));
 };
 
 fetchRepos();
-
 
 const peopleList = [
   "UtkarshDhmmmmmmmmmmmmmmmairyaPandas",
@@ -148,9 +150,9 @@ export default function LoginForm() {
   return (
     <div className="w-screen h-screen flex flex-row bg-gray-50 overflow-x-hidden">
       {/* Sidebar */}
-        <div className="hidden sm:block fixed w-64 h-screen border-r border-gray-200 bg-white">
-          <div className="p-6 flex flex-col h-full">
-            {/* Logo and Dropdown */}
+      <div className="hidden sm:block fixed w-64 h-screen border-r border-gray-200 bg-white">
+        <div className="p-6 flex flex-col h-full">
+          {/* Logo and Dropdown */}
           <div className="mb-2">
             <div className="flex items-center mb-4">
               <img src={dark_logo} alt="logo" className="w-6 h-6" />
@@ -190,52 +192,84 @@ export default function LoginForm() {
                 key={index}
                 className="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-blue-500 cursor-pointer transition-colors group"
               >
-                <span className="text-gray-600 group-hover:text-white">{item.icon}</span>
-                <span className="text-gray-700 group-hover:text-white">{item.name}</span>
+                <span className="text-gray-600 group-hover:text-white">
+                  {item.icon}
+                </span>
+                <span className="text-gray-700 group-hover:text-white">
+                  {item.name}
+                </span>
               </div>
             ))}
           </nav>
         </div>
-
-        <div className="absolute bottom-0 w-full p-4 flex items-center space-x-2">
-            <Phone size={16} />
-            <span className="text-xs text-gray-600">Support</span>
-            
+        {/* Bottom Navigation */}
+        <div className="absolute w-full bottom-0 px-4 pb-4">
+          <div className="flex flex-col ">
+            <div className="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-200 cursor-pointer transition-colors group">
+              <Phone size={16} className="text-gray-600 " />
+              <span className="text-gray-600 ">Support</span>
             </div>
-      </div>
+            <div className="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-200 cursor-pointer transition-colors group">
+              <GoSignOut size={16} className="text-gray-600" />
+              <span className="text-gray-600 ">Logout</span>
+            </div>
+          </div>
+        </div>
+        </div>
 
-      {/* Main Content */}
-      <div className="flex-1 p-8 ml-60">
+        {/* Main Content */}
+      <div className="flex-1 sm:p-8 sm:ml-60 border border-gray-200">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
+          <div className="flex items-center gap-3"></div>
           <div className="mb-4">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between ">
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">
-                  Repositories
-                </h1>
-                <p className="text-gray-600 ">33 total repositories</p>
+            <div className="flex flex-row justify-between border-b border-gray-200 w-full sm:hidden ">
+              <div className="">
+                <div className="flex items-center px-4 py-2 mb-2">
+                  <img src={dark_logo} alt="logo" className="w-6 h-6" />
+                  <h1 className="text-2xl ">CodeAnt AI</h1>
+                </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <button className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50 transition flex items-center gap-2">
+              <div className="mr-7 flex items-center z-50">
+                {/* <GiHamburgerMenu
+                  size={24}
+                  className="text-gray-600 hover:text-gray-800 cursor-pointer"
+                /> */}
+                <HamburgerMenu sideBarItems={sideBarItems} />
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between relative p-4 sm:p-0">
+              <div className="flex items-center gap-4">
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">
+                    Repositories
+                  </h1>
+                  <p className="text-gray-600 ">
+                    {" "}
+                    {repositories.length + " "}total repositories
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 mt-4 md:mt-0">
+                <button className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-100 transition flex items-center gap-2 hover:translate-y-0.5 hover:scale-[1.02]">
                   <RefreshCcw size={16} />
                   <span>Refresh All</span>
                 </button>
-                <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center gap-2">
-                  <PlusIcon size={16} />
+                <button className="px-4 py-2 bg-blue-600 border border-blue-700 text-white rounded-lg hover:bg-blue-700 transition flex items-center gap-2 hover:translate-y-0.5 hover:scale-[1.02]">
+                  <PlusIcon size={20} />
                   <span>Add Repository</span>
                 </button>
               </div>
             </div>
-            <div className="relative w-[480px] max-w-sm mt-4">
+            <div className="relative w-[480px] max-w-sm px-4 sm:p-0  mt-4 ">
               <input
                 type="text"
                 className="w-[480px] rounded-md border border-gray-300 py-2 pl-10 pr-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Search Repositories"
               />
               {/* "Magnifying glass" or any icon at left */}
-              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+              <div className="absolute ml-2 top-1/2 -translate-y-1/2 text-gray-400">
                 <Search size={20} />
               </div>
             </div>
@@ -246,7 +280,7 @@ export default function LoginForm() {
           {repositories.map((repo) => (
             <div
               key={repo.id}
-              className="bg-white rounded-lg border border-gray-100 p-5 hover:shadow-md transition-shadow hover:bg-gray-200"
+              className="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition-all duration-200 ease-in-out hover:-translate-y-1 hover:scale-[1.005] hover:bg-gray-200"
             >
               <div className="flex items-center justify-between">
                 <div>
@@ -273,16 +307,16 @@ export default function LoginForm() {
                 {/* {repo.contributors.length > 0 && (
                     <div className="flex -space-x-2">
                       {repo.contributors.map((contributor, idx) => (
-                        <div
-                          key={idx}
-                          className={`w-8 h-8 flex items-center justify-center rounded-full text-white ${contributor.color} border-2 border-white`}
-                          title={contributor.name}
-                        >
-                          {contributor.name[0]}
-                        </div>
+                      <div
+                        key={idx}
+                        className={`w-8 h-8 flex items-center justify-center rounded-full text-white ${contributor.color} border-2 border-white`}
+                        title={contributor.name}
+                      >
+                        {contributor.name[0]}
+                      </div>
                       ))}
                     </div>
-                  )} */}
+                    )} */}
               </div>
             </div>
           ))}

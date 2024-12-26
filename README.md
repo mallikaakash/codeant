@@ -1,6 +1,7 @@
 # Introduction
 
-The live link for the demo of the projext change be accessed here: CodeAnt AI (https://codeant-ai-iota.vercel.app/)
+The live link for the demo of the project change be accessed here: ![CodeAnt AI](https://codeant-ai-iota.vercel.app/)
+
 
 This website is part of the submission to the CodeAnt AI assignment for the position of a Frontend Developer Intern.
 
@@ -11,6 +12,13 @@ I have made use of the following technologies:
 - Favicon
 - Javascript
 - Tailwind CSS
+
+## Demp ScreenShots 
+
+- ![Sign In Page in a Desktop Screen View](./misc/signin_laptop.png)
+- ![Sign In Page in a Mobile Screen View](./misc/signin_mobile.png)
+- ![Repository Page in a Desktop Screen View](./misc/repo_laptop.png)
+- ![Repository Page in a Mobile Screen View](./misc/repo_mobile.png)
 
 ## Project Structure
 

@@ -145,7 +145,7 @@ const sideBarItems = [
   },
 ];
 
-export default function LoginForm() {
+export default function RepositoriesPage() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="w-screen h-screen flex flex-row bg-gray-50 overflow-x-hidden">

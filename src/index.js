@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.js';
 import {Router, Route, BrowserRouter, Routes} from 'react-router';
-import LoginForm from './pages/LoginForm.jsx';
+import RepositoriesPage from './pages/RepositoriesPage.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,7 +11,7 @@ root.render(
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/login" element={<LoginForm />} />
+      <Route path="/repositories" element={<RepositoriesPage />} />
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

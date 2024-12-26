@@ -1,6 +1,6 @@
 # Introduction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The live link for the demo of the projext change be accessed here: CodeAnt AI(https://codeant-ai-assignment.vercel.app/)
 
 This website is part of the submission to the CodeAnt AI assignment for the position of a Frontend Developer Intern.
 

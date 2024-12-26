@@ -24,9 +24,9 @@ export default function App() {
         <SignInCard />
       </div>
 
-      <div className="absolute bottom-0 right-0 p-4 flex flex-row items-end justify-center gap-2 group ">
+      <div className="cursor-pointer absolute bottom-0 right-0 p-4 flex flex-row items-end justify-center gap-2 group " onClick={() => navigate('/repositories')}>
         <button 
-          onClick={() => navigate('/repositories')}
+          
           className="text-gray-600 group-hover:text-gray-800 transition-all duration-200"
         >
           To Repo Page  

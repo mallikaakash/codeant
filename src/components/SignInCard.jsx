@@ -1,6 +1,11 @@
 import { Gitlab } from 'lucide-react';
 import React, { useState } from 'react';
 import dark_logo from '../assets/dark_logo.jpg';
+import github_logo from '../assets/github.png';
+import gitlab_logo from '../assets/gitlab.png';
+import bitbucket_logo from '../assets/bitbucket.png';
+import azure_logo from '../assets/azure.png';
+import sso_logo from '../assets/key.png';
 
 const LoginPage = () => {
   const [selectedOption, setSelectedOption] = useState('saas');
@@ -9,40 +14,40 @@ const saasOptions = [
     {
         key: '1',
         name: 'Github',
-        icon: '/api/placeholder/20/20',
+        icon:  github_logo,
         title: 'Sign in with Github'
     },
     {
         key: '2',
         name: 'Bitbucket',
-        icon: '/api/placeholder/20/20',
+        icon: bitbucket_logo,
         title: 'Sign in with Bitbucket'
     },
     {
         key: '3',
         name: 'Azure Devops',
-        icon: '/api/placeholder/20/20',
+        icon: azure_logo,
         title: 'Sign in with Azure Devops'
     },
     {
         key: '4',
         name: 'GitLab',
-        icon: '/api/placeholder/20/20',
+        icon: gitlab_logo,
         title: 'Sign in with GitLab'
     }
 ];
     const selfHostedOptions = [
     {
         key: '1',
-        id: 'gitlab',
-        name: 'Self Hosted GitLab',
-        icon: '/api/placeholder/20/20',
+        name: 'gitlab',
+        title: 'Self Hosted GitLab',
+        icon: gitlab_logo,
     },
     {
         key: '2',
-        id: 'sso',
-        name: 'Sign in with SSO',
-        icon: '/api/placeholder/20/20',
+        name: 'sso',
+        title: 'Sign in with SSO',
+        icon: sso_logo,
     }
     ];
   
@@ -110,7 +115,7 @@ const saasOptions = [
                 className="w-2/3 mx-auto mb-4 py-3 px-4 border rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
               >
                 <img src={option.icon} alt={option.name} className="w-5 h-5" />
-                Sign in with {option.name}
+                {option.title}
               </button>
             ))}
           </>

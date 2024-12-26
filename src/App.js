@@ -6,6 +6,14 @@ import logo from "./assets/logo.jpg";
 import { BiRightArrow } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 
+{/* <App /> is the main component that renders the MetricsCards and SignInCard components. */
+/* The MetricsCards component displays two cards: a larger card and a smaller overlapping card. */
+/* The SignInCard component displays a form with two tabs: SaaS and Self-Hosted. */
+/* The user can switch between the tabs to sign in with different services. */
+/* The user can also navigate to the RepositoriesPage by clicking on the "To Repo Page" button. */
+/* The Company logo is displayed on the left hand side of the page. */
+}
+
 export default function App() {
   const navigate = useNavigate();
 

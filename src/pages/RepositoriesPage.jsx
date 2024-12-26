@@ -27,10 +27,17 @@ import { BsRecord } from "react-icons/bs";
 import { Octokit } from "octokit";
 import { BiExit } from "react-icons/bi";
 
+
+{/*------------------------------------CAN BE IGNORED------------------------------------*/}
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 const octokit = new Octokit({
   auth: GITHUB_TOKEN,
 });
+{
+  /* Tried to make use of the Github API in order to fetch the my repositories*/
+  /* The code is working fine and fetching the repositories */
+  /* But the code is not used in the final code. there can be ignored*/
+}
 
 console.log(octokit);
 
@@ -45,6 +52,8 @@ const fetchRepos = async () => {
 };
 
 fetchRepos();
+
+{/*------------------------------------RepositoriesPage------------------------------------*/}
 
 const peopleList = [
   "UtkarshDhmmmmmmmmmmmmmmmairyaPandas",

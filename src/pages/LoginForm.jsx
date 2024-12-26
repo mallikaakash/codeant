@@ -9,6 +9,7 @@ import {
   ChevronDown,
   Cloud,
   HomeIcon,
+  Phone,
   PlusIcon,
   RecycleIcon,
   RefreshCcw,
@@ -20,6 +21,28 @@ import dark_logo from "../assets/dark_logo.jpg";
 import { useState } from "react";
 import { MdFiberManualRecord } from "react-icons/md";
 import { BsRecord } from "react-icons/bs";
+import { Octokit } from "octokit";
+import { BiExit } from "react-icons/bi";
+
+const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+const octokit = new Octokit({ 
+  auth: GITHUB_TOKEN
+});
+
+console.log(octokit);
+
+const fetchRepos = async () => {
+  const response = await octokit.request('GET /users/mallikaakash/repos', {
+    username: 'mallikaakash',
+    headers: {
+      'X-GitHub-Api-Version': '2022-11-28'
+    }
+  });
+  console.log(response.data.map((repo) => repo.full_name.split("/")[1]));
+};
+
+fetchRepos();
+
 
 const peopleList = [
   "UtkarshDhmmmmmmmmmmmmmmmairyaPandas",
@@ -123,11 +146,11 @@ const sideBarItems = [
 export default function LoginForm() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="w-screen h-screen flex flex-row bg-gray-50">
+    <div className="w-screen h-screen flex flex-row bg-gray-50 overflow-x-hidden">
       {/* Sidebar */}
-      <div className="w-64 min-h-screen border-r border-gray-200 bg-white">
-        <div className="p-6 flex flex-col h-full">
-          {/* Logo and Dropdown */}
+        <div className="hidden sm:block fixed w-64 h-screen border-r border-gray-200 bg-white">
+          <div className="p-6 flex flex-col h-full">
+            {/* Logo and Dropdown */}
           <div className="mb-2">
             <div className="flex items-center mb-4">
               <img src={dark_logo} alt="logo" className="w-6 h-6" />
@@ -151,7 +174,7 @@ export default function LoginForm() {
                   <a
                     key={index}
                     href="#"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 truncate"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200 truncate"
                   >
                     {person}
                   </a>
@@ -165,22 +188,28 @@ export default function LoginForm() {
             {sideBarItems.map((item, index) => (
               <div
                 key={index}
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-50 cursor-pointer"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-blue-500 cursor-pointer transition-colors group"
               >
-                <span className="text-gray-600">{item.icon}</span>
-                <span className="text-gray-700">{item.name}</span>
+                <span className="text-gray-600 group-hover:text-white">{item.icon}</span>
+                <span className="text-gray-700 group-hover:text-white">{item.name}</span>
               </div>
             ))}
           </nav>
         </div>
+
+        <div className="absolute bottom-0 w-full p-4 flex items-center space-x-2">
+            <Phone size={16} />
+            <span className="text-xs text-gray-600">Support</span>
+            
+            </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 p-8">
+      <div className="flex-1 p-8 ml-60">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="mb-4">
-            <div className="flex flex-row sm:flex-row items-start sm:items-center justify-between ">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between ">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">
                   Repositories
@@ -199,10 +228,10 @@ export default function LoginForm() {
                 </button>
               </div>
             </div>
-            <div className="relative w-full max-w-sm mt-4">
+            <div className="relative w-[480px] max-w-sm mt-4">
               <input
                 type="text"
-                className="w-full rounded-md border border-gray-300 py-2 pl-10 pr-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-[480px] rounded-md border border-gray-300 py-2 pl-10 pr-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Search Repositories"
               />
               {/* "Magnifying glass" or any icon at left */}
@@ -217,16 +246,16 @@ export default function LoginForm() {
           {repositories.map((repo) => (
             <div
               key={repo.id}
-              className="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition-shadow"
+              className="bg-white rounded-lg border border-gray-100 p-5 hover:shadow-md transition-shadow hover:bg-gray-200"
             >
               <div className="flex items-center justify-between">
                 <div>
                   <div className="flex items-center gap-3 mb-2">
-                    <h2 className="text-lg font-semibold text-gray-900">
+                    <h2 className="text-base font-semibold text-gray-900">
                       {repo.name}
                     </h2>
                     <span
-                      className={`text-sm font-semibold px-2 py-0.5 rounded-full border ${
+                      className={`text-xs font-semibold px-2 py-0.5 rounded-full border ${
                         repo.visibility === "Public"
                           ? "bg-green-100 text-green-600 border-green-600"
                           : "bg-gray-100 text-gray-600 border-gray-600"
@@ -235,7 +264,7 @@ export default function LoginForm() {
                       {repo.visibility}
                     </span>
                   </div>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-xs">
                     {repo.language} • {repo.size} KB • Updated{" "}
                     {repo.lastUpdated}
                   </p>
